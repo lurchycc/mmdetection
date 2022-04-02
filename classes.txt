@@ -1,0 +1,6 @@
+eca_wl
+eca_nbi
+eca_iod
+gm_up
+gm_down
+g_ulcer

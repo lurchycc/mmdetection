@@ -4,6 +4,12 @@ _base_ = [
 ]
 num_stages = 6
 num_proposals = 100
+classes  = '/home/lz/mmdetection/classes.txt'
+data = dict(
+    train = dict(classes=classes),
+    val = dict(classes=classes),
+    test = dict(classes=classes)
+)
 model = dict(
     type='QueryInst',
     backbone=dict(
@@ -55,7 +61,8 @@ model = dict(
         bbox_head=[
             dict(
                 type='DIIHead',
-                num_classes=80,
+                # num_classes=80,
+                num_classes=7,
                 num_ffn_fcs=2,
                 num_heads=8,
                 num_cls_fcs=1,
@@ -99,7 +106,8 @@ model = dict(
                     act_cfg=dict(type='ReLU', inplace=True),
                     norm_cfg=dict(type='LN')),
                 num_convs=4,
-                num_classes=80,
+                # num_classes=80,
+                num_classes=7,
                 roi_feat_size=14,
                 in_channels=256,
                 conv_kernel_size=3,
